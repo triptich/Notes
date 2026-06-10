@@ -35,13 +35,17 @@ If the recipient is down at the moment,the broker might be configured to retry a
 
 These messages can be persisted if required or stored only in memory.In the latter case, they will be lost when the broker is restarted and they are not yet sent to the consumer.
 
-
-
-
 Different messaging tools are based on AMQP(Advances Messaging Queueing Protocol)
 Apache Kafka
 RabbitMQ
 ActivemQ
+
+What if the Message Broker is Down
+A message broker is a vital part of asynchronous architecture and hence must be fault tolerant.
+This can be achieved by setting up additional standby replicas that can do failover.
+
+ Its essential to ensure the messages arrive at its destination, a broker might be configured to work in at least once mode. Afte the message reaches the consumer,it needs to send back ACK to the broker. If no acknowledgement gets to the broker, it will retry the delivery after some time.
+
 
 Differnece between Monolithic, SOA and Microservices Architecture
 A service oreinted architecture is a collection of services which communicate with each other.
