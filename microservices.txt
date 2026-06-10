@@ -14,6 +14,11 @@ There are 2 Different Types of Inter service Communication between microservices
 
 Synchronous Communication :
 The clients service waits for the response within a time limit. The possible solution is using Http protocol using via REST API for interservice communication.
+Eg
+REST API
+GraphQl
+Feign Using Eureka Discoveries
+GRPC( 10 times faster than REST API)
 
 Asynchronous Communication : The client Service doesnt wait for the response from another service. When the client microservice calls another microservice , thread is not blocked till the response comes from ther seerver.
 
