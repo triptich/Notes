@@ -1,0 +1,4 @@
+How do Microservcies Communicate With Each Other : 
+There are 2 Different Types of Inter service Communication between microservices
+1) Synchronous
+2) Asynchronous 
