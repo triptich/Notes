@@ -27,6 +27,17 @@ The message broker waits only for the acknowledgement from the message broker to
 The consuming service subscribes to the topic in the emssaging queue.All the messages belonging to the topic will be fed to the consuming system.
 The message producer service and message consumer service dont even know each other.
 
+In async communication,to inititate such type of communication a microservice who wants to send some data to another microservice publishes a message to a separate component known as message broker.
+It is responsible for handling the message sent by the producer service and it will gurantee message delivery.
+
+After the message is received by the broker, its now its job to pass the message to the target service.
+If the recipient is down at the moment,the broker might be configured to retry a slong as necessary for sucessful delivery
+
+These messages can be persisted if required or stored only in memory.In the latter case, they will be lost when the broker is restarted and they are not yet sent to the consumer.
+
+
+
+
 Different messaging tools are based on AMQP(Advances Messaging Queueing Protocol)
 Apache Kafka
 RabbitMQ
