@@ -13,8 +13,27 @@ The message broker waits only for the acknowledgement from the message broker to
 The consuming service subscribes to the topic in the emssaging queue.All the messages belonging to the topic will be fed to the consuming system.
 The message producer service and message consumer service dont even know each other.
 
-Different messaging tools are based on AMQP(Advances MEssaging Queue Protocol)
+Different messaging tools are based on AMQP(Advances Messaging Queueing Protocol)
 Apache Kafka
 RabbitMQ
 ActivemQ
+
+Differnece between Monolithic, SOA and Microservices Architecture
+A service oreinted architecture is a collection of services which communicate with each other.
+The communication can involve either simple data passing or it could involve two or more services coordinating some activity.
+
+Main differnce between SOA and MS is based on sahring of data and info.
+SOA shares and resuses as much as possible while MS focuses on sharing as little as possible.
+
+
+
+
+
+
+
+
+
+
+
+
 
