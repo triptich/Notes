@@ -1,3 +1,12 @@
+How do Microservices Architecture Work
+
+Client send the request
+Security and Identity Management like OKTA will be implemented between client and microservices.
+API gateway : It acts as an entry point for each and every indicvidual trying to access the application and from api gateway we have routing mechanism which routes each and every request depending on its nature to which of the microservices it want to redirect to.
+Then we have microservices
+Then we have Service Discovery. It is server which acts a a registry and holds each and every address of each and every microservice.
+
+
 How do Microservcies Communicate With Each Other : 
 There are 2 Different Types of Inter service Communication between microservices
 1) Synchronous
@@ -24,6 +33,32 @@ The communication can involve either simple data passing or it could involve two
 
 Main differnce between SOA and MS is based on sahring of data and info.
 SOA shares and resuses as much as possible while MS focuses on sharing as little as possible.
+
+How to Design Microservices :
+1) A separate data store for each of the microservice
+2) The application needs to be split into lossely coupled microservices based on business functionality.
+3) Decentralized framework
+4) Polyglot architecture as per the business needs
+5) Services to be designed, developed and managed separately
+6) Domain-driven design
+7) Rela-time monitoring of the application should be possible
+8) Deploy in containers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
