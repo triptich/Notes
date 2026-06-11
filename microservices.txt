@@ -158,6 +158,18 @@ and acknowledged
 8)No constaints -payload size                       Default 1 MB limit
 
 
+Steps to Configure Kafka
+Need to install zookeeper and kafka in local
+
+Project Set up
+1) Spring Boot Project
+2) Kafka dependency in web
+3) Cintroller to fetch messages from client
+4) Producer who push these messages/events to topic
+5) Consumer to listen to it
+6) Application.proeprties to configure producer peroperties
+7) Run Zookeeper and kafka server
+
 
 
 
