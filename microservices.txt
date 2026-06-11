@@ -94,7 +94,18 @@ Unlike messaging-based communication, in event-based communication, especially i
 
 In event-driven pattern services just push the event to the topic in message broker and then the services that subscribe to that topic will react for each occurence event in that topic. Each event in the topic will be related to specific business logic execution 
 
+Pros and Cons of Synchronous Communication
+Pros : Synchronous communication is simpler in design
+Cons : Carries the risk of spreading failures across services.
 
+Ways to mitigate Synchronous Communication 
+The architect must implement sophisticated service discovery and load balancing among microservices.
+
+Pros and Cons of Asynchronous Communication :
+Pros : Resilience and Scalability
+       Provide better control over failures than synchronous setups
+       Loosely coupled microservices
+Cons : Asyn communication has lesser architectural simplicity and data consistency
 
 
 
