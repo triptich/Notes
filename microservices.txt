@@ -143,7 +143,13 @@ Cons of Kafka
 1)Semantics : The developers need to have deep understanding of the message flow as its strict requirements.
 2) Message visibility : You must track all those messages to allow you to debug whenever a problem occurs.
 
-
+ActiveMQ/RabbitMQ                                  Kafka
+1) use them for eaxtly once delivery and           Use kafka for highe rperformance monitoring and where lossing  for valuing messages                               messages is not importnant
+2) Lower throughput since each delivery            Higher throughput since producers dont wait for acknowledgement
+  message state is maintained                      from brokers.
+3) Cannot assure the order of messages             Can assure messages retain the order in which they are sent
+   to remain same
+4) Work of filtering is done by the JMS API        No fundamental filters ath the brokers.Hence it must be done    message selector and not by the applications      by consumers or apps.
 
 
 
