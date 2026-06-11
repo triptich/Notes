@@ -130,7 +130,18 @@ Order lifecycle events
 Logging & auditing
 
 
+KAFKA
+Apache kafka is publish-subscribe based fault tolernace messaging system. It is fast, scalable and distributed by design
 
+Pros of Kafka
+1) Loose coupling : Neither service knows about each other regarding data update matters
+2) Durability : Guarantees that the message will be delivered even if the consumer service is down. Whenever the consumer gets up again, all messages will be there
+3) Scalibility : Since the messages gets stored in a bucket there is no need to wait for responses.
+4) Flexibility : The sender of a message has no idea who is going to consume it.Meaning we can easily add new consumers with less work
+
+Cons of Kafka
+1)Semantics : The developers need to have deep understanding of the message flow as its strict requirements.
+2) Message visibility : You must track all those messages to allow you to debug whenever a problem occurs.
 
 
 
