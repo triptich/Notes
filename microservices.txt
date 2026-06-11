@@ -150,7 +150,9 @@ ActiveMQ/RabbitMQ                                  Kafka
 3) Cannot assure the order of messages             Can assure messages retain the order in which they are sent
    to remain same
 4) Work of filtering is done by the JMS API        No fundamental filters ath the brokers.Hence it must be done    message selector and not by the applications      by consumers or apps.
-
+5) Push type messaging platform wherein the        Pull Type smessaging platform wherein consumers pull the       providers push the messages to consumers           messages from the broker
+6)Responsibility of producers to ensure            Responsibility of consumers to consume messages
+delivery of messages
 
 
 
