@@ -64,6 +64,31 @@ How to Design Microservices :
 7) Rela-time monitoring of the application should be possible
 8) Deploy in containers
 
+Types of Async Communication
+1) Point to Point
+2) Publisher Subscriber
+
+PTP Async Communication :
+A Queue will be used for this type of message-based communication.
+The service that produces the message which is called as producer will send the message to queue in one messsage broker and the service that has an interest in that message which is called consumer will consume that message from queue and carry out further process for that message.
+
+One messsage sent by the producer can be consumed by only one receiver and the message will be deleted after consumed.
+
+If the receiver or an interested service is down, the message will remain persistent in that queue until the receiver is up and consumes that message.
+
+For this reason, messaging based communication is one of the best choices to make our microservices resilient.
+
+A popular choice for the queueing system is RabbitMQ, ActiveMQ
+
+
+
+
+
+
+
+
+
+
 
 
 
