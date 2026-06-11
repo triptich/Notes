@@ -80,6 +80,17 @@ For this reason, messaging based communication is one of the best choices to mak
 
 A popular choice for the queueing system is RabbitMQ, ActiveMQ
 
+Publisher-Subscriber Async Communication :
+In publisher-subscriber messaging-based communication the topic in the message broker will be used to store the message sent by the publisher and then the subsribers that subscribe to that topic will consume that message.
+
+The message will be ready to consume for all subscribers and the topic can have one or more subscribers.The message remains persistent in a topic until we delete it.
+
+In messaging-based communication the services that consume message either from queue or topic must know the common message structure that is prodcued or published by proudcer or subscriber.
+
+eg are Kafka, Amazon SNS etc
+
+
+
 
 
 
