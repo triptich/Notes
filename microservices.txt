@@ -89,7 +89,10 @@ In messaging-based communication the services that consume message either from q
 
 eg are Kafka, Amazon SNS etc
 
+Event Based Async Communication:
+Unlike messaging-based communication, in event-based communication, especially in event-driven pattern, the servcies that consume the emssage do not need to know the details of the message.
 
+In event-driven pattern services just push the event to the topic in message broker and then the services that subscribe to that topic will react for each occurence event in that topic. Each event in the topic will be related to specific business logic execution 
 
 
 
