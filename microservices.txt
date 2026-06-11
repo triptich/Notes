@@ -105,7 +105,29 @@ Pros and Cons of Asynchronous Communication :
 Pros : Resilience and Scalability
        Provide better control over failures than synchronous setups
        Loosely coupled microservices
-Cons : Asyn communication has lesser architectural simplicity and data consistency
+Cons : Async communication has lesser architectural simplicity and data consistency
+
+When to use which Communication Method
+
+Use sync when you need immediate response.
+Caller depend son immediate result
+Ideal Use cases
+1) User-facing API;s : Get user details, 
+                       Fetch order status
+2) Validation checks before proceeding : Payment verification
+                                         Inventory Check
+
+Use async when immediate response is NoT required.
+Ideal Use Cases 
+EVent Driven workflows
+Background tasks
+High-sclae systems
+Loose coupling needed
+
+Common Scenarios
+Sending emails/notifications
+Order lifecycle events
+Logging & auditing
 
 
 
