@@ -220,6 +220,25 @@ Topics are multi-producer and multi-subscriber.
 Kafka topics are divided into number of partitions which contain msgs/events in an unchaneable sequence.
 Each msg in a partition is assigned and identified by its unique offset. A topic can also have multiple partition.
 
+Kafka cluster : A kafka cluster is a system that comprises of different brokers, topics and their respective partitions.
+
+Producers :
+Producers sends or writes data/messages to the topic within the cluster.Before a producer can send any messages it has to request metadata about the cluster from the broker.
+
+Consumers :
+A consumer is the one taht reads or consumes message from the kafka cluster  . The beauty of kafka is that eacg consumer knows from where it needs to consume the data
+
+Zookeeper :
+For the prupose of managing and coordinating, Kafka broker uses Zookeeper.
+
+A zookeeper is used to store information about kafka clusters and details of the consumer clients. It manages brokers by maintaining list of them
+Brokers/kafka servers are staeless,hence for maintaining the cluster state they use zookeeper. Also, zookeeper is responsible for choosing aleader for the partitions.
+
+Also, uses it to notify producer and consumer about the presence of any new broker in the kafka system or failure of the broker in the kafka system.
+
+As soon as the zookeeper sends the notification regarding presence or failure of the broker then producer and consumer,take the decision and starts coordinating their task with some other broker.
+
+
 
 
 
