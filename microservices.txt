@@ -170,6 +170,48 @@ Project Set up
 6) Application.proeprties to configure producer peroperties
 7) Run Zookeeper and kafka server
 
+Project
+Dependencies - Spring Web, Spring Apache Kafka
+
+Controller
+@RestController
+@RequestMapping("/rest/api")
+public class RestContollerToFetchMsg{
+
+@Autowired
+Producer producer;
+
+@GetMapping("/producerMsg")
+public void getMessageFroClient(@RequestParam("message") String message){
+   producer.sendMsgToTopic(message);
+}
+}
+
+Service
+Producer
+@Service
+public class Prodcuer{
+@Autowired
+KafkaTemplate<String,String> kafkaTemplate ;
+
+public void sendMsgToTopic(String message){
+ kafkaTemplate.send("code_decode_topic",message);
+}
+}
+
+
+Consumer
+@Service
+public class Consumer{
+
+@KafkaListener(topics="code-decode_topic",groupId="")
+ public void listenTotopic(String message){
+   System.out.println("The emssage received is "+message);
+ }
+}
+
+
+
 
 
 
