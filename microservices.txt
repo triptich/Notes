@@ -210,6 +210,20 @@ public class Consumer{
  }
 }
 
+Cluster -> Broker -> Topics -> Partitions -> offset -> Msg/Event
+
+Topics : 
+A bucket of message where services may place or read messages from.
+A topic is simlar to folder and these messages are the files in that folder.
+Topics are multi-producer and multi-subscriber.
+
+Kafka topics are divided into number of partitions which contain msgs/events in an unchaneable sequence.
+Each msg in a partition is assigned and identified by its unique offset. A topic can also have multiple partition.
+
+
+
+
+
 
 
 
