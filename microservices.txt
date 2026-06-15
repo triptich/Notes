@@ -334,8 +334,12 @@ Difference between SAGA and 2Phase Commit
 3) Blocking                                  Non Blocking
 4) Compexity                                 Simplicity
 5) Performance Overhead                      Better Performance
-6) Stromg Data Consistency                   Temporarily Inconsistency
+6) Strong Data Consistency                   Temporarily Inconsistency
 
+
+Deployment Strategies :
+Blue Green Deployment : It involves maintaining two environments one is Blue(current live verison) and the other is the Green(new version).
+The traffic is switched to the green environment once its verified as stable. Once issues are detected, traffic can easily revert to the Blue environment enabling a quick rollback.
 
 
 
