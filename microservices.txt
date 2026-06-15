@@ -341,6 +341,9 @@ Deployment Strategies :
 Blue Green Deployment : It involves maintaining two environments one is Blue(current live verison) and the other is the Green(new version).
 The traffic is switched to the green environment once its verified as stable. Once issues are detected, traffic can easily revert to the Blue environment enabling a quick rollback.
 
+Canary Deployment : It involves releasing new version to a small subset of users first. If it performs well, it gradually rolls out to more users until it fully replaces the previous version.
+
+
 
 
 
