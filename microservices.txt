@@ -299,6 +299,12 @@ The orchestrator:
 2) stores and interprets the states of each task
 3) handles failure recovery with compensating transactions
 
+Advantages :
+1)Good for complex workflows involving many participants or new particpants added over time
+2)Suitable when there is control over every participant in the process and control over the flow of activities.
+3) Doesnt introduce cyclic dependencies because the orchestrator unilateraaly depends on the sgsa particpants.
+4)Saga particpants dont need to know about commands for other particpants. Clear separation of concerns simplifies business logic.
+
 
 
 
