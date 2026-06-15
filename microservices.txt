@@ -272,6 +272,34 @@ So saga pattern groups these local transactions and sequentially invoke one by o
 
 If one of the step failed, saga pattern trigger to rollback traansactions that are a set of compensating transactions that rollback the changes on previous microservices and restore data consistency.
 
+Ways to implemrent SAGA
+There are 2 types of saga implementayion ways :
+1) Choreography
+2) Orchestration
+
+Choreography : It is a way to coordinate saga where participants exchange events without a centralized point of control.
+With choreography, each microservices run its own local transactions and publishes events to message broker system and that trigger local transactions in other microservices.
+
+Advantages of Choreography :
+1) Good for simple workflow that requires few participants and dont need coordination logic
+2) Doesnt require additional service implementation and maintenance.
+3) Doesnt introduce a single point of failure, since the responsibilities are distributed across saga participants.
+
+Disadvantages of Choreography :
+1) Workflow can become confusing when adding new steps as its difficult to track which saga participants listen to which commands.
+2) There is a risk of cyclic dependency between saga participants because they have to comsuem each other's command
+3)Integration testing is difficult because all services must be running to simulate a transaction.
+
+
+Orchestration :
+Orchestration is way to coordinate saga where a centralized controller tells the saga participants what local transactions to execute.
+The saga orchestrator handles all the transactions and tells the particpants which operation to perform based on events.
+The orchestrator:
+1) executes saga requests
+2) stores and interprets the states of each task
+3) handles failure recovery with compensating transactions
+
+
 
 
 
