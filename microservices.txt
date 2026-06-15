@@ -238,6 +238,19 @@ Also, uses it to notify producer and consumer about the presence of any new brok
 
 As soon as the zookeeper sends the notification regarding presence or failure of the broker then producer and consumer,take the decision and starts coordinating their task with some other broker.
 
+SAGA
+Lets take example of Swiggy, Zomato:
+Choose Dishes
+Add them to cart and Checkout
+Make payment 
+Order gets Delivered
+Order marked as completed after delivery is sucessful.
+
+In monolithic its not a problem as we have 1 database and multiple tables like Order, Payment, Delivery etc. Now In one single atomic transaction we can do all these steps and if payment fails, everything gets rolled back.
+
+
+
+
 
 
 
