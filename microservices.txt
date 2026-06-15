@@ -327,6 +327,14 @@ How to handle Data Consistency in Microservices Archotecture
 7) Monitoring & Logging
 8) Conflict Resolution
 
+Difference between SAGA and 2Phase Commit
+2 Phase Commit                                           SAGA Pattern
+1) Strong Consistency                                 Eventual Consistency
+2)Synchronous                                Asysnchronous
+3) Blocking                                  Non Blocking
+4) Compexity                                 Simplicity
+5) Performance Overhead                      Better Performance
+6)
 
 
 
