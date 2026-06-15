@@ -317,6 +317,17 @@ How to handle more users in Microservices based application
 5) Database Scaling
 6) Asynchronous Processing
 
+How to handle Data Consistency in Microservices Archotecture
+1) Synchronous Communication
+2)Asynchronous Communication
+3) CQRS(Command Query Responsibility Segregation)
+4) EVent Sourcing
+5)Distributed Transaction
+6)Saga Pattern
+7) Monitoring & Logging
+8) Conflict Resolution
+
+
 
 
 
