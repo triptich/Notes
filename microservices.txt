@@ -348,7 +348,8 @@ It is similar to canary deployment but is typically used for feature experimenta
 
 Shadow Deployment :  In shadow deployment the new veriosnruns in parallel with old one but receives a copy of the live traffic without impacting actual user experience.
 
-
+Feature Toggles(Flags):
+With feature toggles, new features are included in deployment but kept disabled for users. A toggle can gradually enable thes features to selected users allowing testing in production while minimizing risk
 
 
 
