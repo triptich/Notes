@@ -268,6 +268,12 @@ Each saga has two jobs to do :
 1) Update the current microservice and make the required changes
 2) Publish events to trigger the next transaction forthe next microservices
 
+So saga pattern groups these local transactions and sequentially invoke one by one. Eaxh local transaction updates the database and publishes an event to trigger the next local transaction.
+
+If one of the step failed, saga pattern trigger to rollback traansactions that are a set of compensating transactions that rollback the changes on previous microservices and restore data consistency.
+
+
+
 
 
 
