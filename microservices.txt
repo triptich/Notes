@@ -305,6 +305,11 @@ Advantages :
 3) Doesnt introduce cyclic dependencies because the orchestrator unilateraaly depends on the sgsa particpants.
 4)Saga particpants dont need to know about commands for other particpants. Clear separation of concerns simplifies business logic.
 
+Disadvantages :
+1)Additional design complexity requires an implementation of coordination logic
+2) There is an additional point of failure because the orchestrator manages the complete workflow
+
+
 
 
 
