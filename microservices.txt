@@ -257,6 +257,9 @@ Order service accepts the order, payment service validates the payment done and 
 This is happy case.
 
 Second scenario, delivery gets failed as no delivery partner was available.
+Payment was done, money got deducted and now no food.At least we need to get money back and order must be marked as cancelled.
+For this to happen we need a transaction rollback. Transaction did get rolled back but the only scope of transaction was in Delivery Service 
+
 
 
 
