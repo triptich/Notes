@@ -343,6 +343,11 @@ The traffic is switched to the green environment once its verified as stable. On
 
 Canary Deployment : It involves releasing new version to a small subset of users first. If it performs well, it gradually rolls out to more users until it fully replaces the previous version.
 
+A/B Testing :
+It is similar to canary deployment but is typically used for feature experimentation. Differnet versions are served to different user groups simultaneously to determine which performs better.
+
+Shadow Deployment :  In shadow deployment the new veriosnruns in parallel with old one but receives a copy of the live traffic without impacting actual user experience.
+
 
 
 
