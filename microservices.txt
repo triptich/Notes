@@ -309,6 +309,13 @@ Disadvantages :
 1)Additional design complexity requires an implementation of coordination logic
 2) There is an additional point of failure because the orchestrator manages the complete workflow
 
+How to handle more users in Microservices based application
+1) Load Balancing
+2) Horizontal Sacling
+3) Caching
+4)Autoscaling
+5) Database Scaling
+6) Asynchronous Processing
 
 
 
