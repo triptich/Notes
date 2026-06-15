@@ -260,6 +260,15 @@ Second scenario, delivery gets failed as no delivery partner was available.
 Payment was done, money got deducted and now no food.At least we need to get money back and order must be marked as cancelled.
 For this to happen we need a transaction rollback. Transaction did get rolled back but the only scope of transaction was in Delivery Service 
 
+Here application completely failed to manage distributed transaction. This isa problem and to handle such distributed transaction, SAGA Design Pattern came into picture.
+
+SAGA
+A saga is a sequence of the local transactions.
+Each saga has two jobs to do :
+1) Update the current microservice and make the required changes
+2) Publish events to trigger the next transaction forthe next microservices
+
+
 
 
 
