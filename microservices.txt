@@ -248,7 +248,15 @@ Order marked as completed after delivery is sucessful.
 
 In monolithic its not a problem as we have 1 database and multiple tables like Order, Payment, Delivery etc. Now In one single atomic transaction we can do all these steps and if payment fails, everything gets rolled back.
 
+Now we move dto microservices architecture and seggregated the whole swiggy or zomato application to :
+Order Service
+Payment Service
+Delivery Service
 
+Order service accepts the order, payment service validates the payment done and Delivery service is responsible for delivery of your order to home. When delivered sucesfully order is marked as completed in the application.
+This is happy case.
+
+Second scenario, delivery gets failed as no delivery partner was available.
 
 
 
