@@ -188,6 +188,25 @@ Slice
 Use slice when you dont need total count
 High Performance API's
 
+Caching:
+Storing frequently used data temporarily to avoid repeated computation or DB calls.
+Why use Caching :
+Reduces Database load
+Improves performance
+Reduces network calls
+
+Spring Boot Caching Architecture
+Enabling Cache :
+@SpringBootApplication
+@EnableCaching
+public class Application {
+
+}
+
+Important Caching Annotations 
+1) @Cacheable
+
+
 
 
 
