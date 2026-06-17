@@ -92,7 +92,62 @@ Use in business logic methods
 @Transactional doesnt work on private methods
 
 
+Pagination :
+Pagination is splitting of large datasets into smaller chunks instead of returning everything at once.
+Why is it Required :
+Reduces memory usage on server
+Improves API Response time
+Reduces network bandwidth
+Better UX
 
+Pageable:
+Interface representing pagination info(page,size,sort)
+Passed from Controller to repository
+
+Pageable pageable = PageRequest.of(page,size);
+
+Page:
+Represents paginated result
+Contains both data + metadata
+
+Methods are :
+page.getContent();
+page.getTotalEmements();
+page.getTotalPages();
+page.getNumber();
+page.isLast();
+
+PageRequest
+Concrete implementation of Pageable
+PageRequest.of(page,size);
+PageRequest.of(page,size,Sort.by("name").ascending());
+
+Layer Wise Implementation
+Entity
+
+@Entity
+public class USer{
+@Id
+@GeneratedValue
+private Long id;
+private String name;
+}
+
+Repository
+public interface UserRepository extends JPARepository<User,Long>{
+Page<User> findByNameContaining(String name,Pageable pageable);
+}
+
+Service
+@Service
+public class USerService{
+@Autowired
+private UserRepository userRepository;
+
+public Page<User> getUsers(int page,int size){
+  Pageable pageable = PageRequest.of(page,size);
+}
+}
 
 
 
