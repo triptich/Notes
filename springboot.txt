@@ -38,12 +38,22 @@ public void createOrder(Order order){
 
 Propagation :
 Defines how transaction behaves when another transactional method is called
-Types
-REQUIRED(default) : Join existing or create new
-REQUIRES_NEW : Always new transaction
-SUPPORTS :  USe if exists, else no tansaction
-NOT_SUPPORTED : Always non-transactional
+Types :
+REQUIRED(default) : Join existing transaction or create new one
+@Transactional(propagation = Propagation.REQUIRED)
+
+REQUIRES_NEW : Always start new transaction. Suspends outer transaction. Used in Audit logging
+@Transactional(propagation = Propagation.REQUIRES_NEW)
+
+SUPPORTS :  USes existing transaction if present, else runs without tansaction
+@Transactional(propagation = Propagation.SUPPORTS)
+
+NOT_SUPPORTED : Suspends current transaction. Runs non-transactional
+@Transactional(propagation = Propagation.NOT_SUPPORTED)
+
 MANDATORY : Must have existing transaction
+@Transactional(propagation = Propagation.REQUIRED)
+
 NEVER : Fail if transaction exists
 NESTED : Nested transaction with savepoint
 
