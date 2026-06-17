@@ -8,6 +8,27 @@ This prevents inconsistent data
 For eg : Decbit Account A + Credit Account B
 If credit fails -> debit must also rollback
 
+ACID Properties
+Spring transactions are based on ACID gurantees
+Atomicity : All nor nothing
+Consistency : DB moves from one valid state to another
+Isolation : Transactions dont interfere with each other
+Durability : Committed data is permanent
+
+Transaction Management in Spring Boot
+Spring Boot provides declarative transaction management using :
+@Transactional annotation
+
+What Spring does internally :
+Opens transaction before method execution
+Executes business logic
+  Commits if success
+  Rolls back if exception occurs
+
+
+
+
+
 
 
 
