@@ -1,1 +1,14 @@
 Transactions
+
+A transaction is a sequence of operations executed as a single unit of work.
+If all operations succeed then Commit
+If any operation fails then Rollback
+This prevents inconsistent data
+
+For eg : Decbit Account A + Credit Account B
+If credit fails -> debit must also rollback
+
+
+
+
+
