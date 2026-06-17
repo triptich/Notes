@@ -62,6 +62,23 @@ No rollback if there is checked exception
 
 @Transactional(rollbackFor = Exception.class)
 
+How @Transactional Works Internally
+Spring used AOP (proxy-based mechanism)
+Flow :
+Proxy intercepts method call
+Starts transaction
+Executes method
+Commit/rollback
+
+Where to use Transactions
+Service Layer( best practice)
+Avoid in controller layer
+Use in business logic methods
+
+@Transactional doesnt work on private methods
+
+
+
 
 
 
