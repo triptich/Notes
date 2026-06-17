@@ -204,7 +204,28 @@ public class Application {
 }
 
 Important Caching Annotations 
-1) @Cacheable
+1) @Cacheable( Read Operation)
+Checks cache first
+If not present -> executes method -> stores result
+
+@Cacheable(value="users",key="#id")
+public User getUserById(Long id){
+  return userRepository.findById(id).orElse(null);
+}
+
+2) @CachePut(Update Cache)
+Always executes method
+Updates cache
+
+@CachePut(value="users", key ="#user.id")
+public User updateUser(User user){
+return userRepository.save(user)
+}
+
+@CacheEvict( Delete Cache)
+Removes cache entry
+
+
 
 
 
