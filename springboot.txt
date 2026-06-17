@@ -142,15 +142,51 @@ Service
 @Service
 public class USerService{
 @Autowired
-private UserRepository userRepository;
+private UserRepository repo;
 
 public Page<User> getUsers(int page,int size){
   Pageable pageable = PageRequest.of(page,size);
+  return repo.findAll(pageable);
 }
 }
 
+Controller
+@RestController
+@RequestMapping("/users")
+public class USerController{
+  @Autowired
+private UserService service;
 
+@GetMapping
+public Page<User> getUsers(@RequestParam(defaultValue="0")int page, @RequestParam(defaultValue="1")int size){
+  return service.getUsers(page,size);
+}
+}
 
+Pagination with Sorting
+Pageable pageable = PageRequest.of(page,size,Sort.by("name").descending());
+
+Pagination with Filtering
+Page<User> findByNameContaining(String name, Pageable pageable);
+
+API :
+/users?name=Tripti&page=0&size=5
+
+Types of Pagination
+1) Offset based Pagination(Default in Spring Boot)
+Uses page and size
+Slow for large data and can jump to any page
+Internally uses:
+LIMIT 10 OFFSET 20
+
+2) Cursor Pagination
+Uses last record as reference(eg ID or timestamp)
+Fast for large datasets.
+Used in real time systems(feeds,chat,logs)
+
+Slice
+Use slice when you dont need total count
+High Performance API's
 
 
 
