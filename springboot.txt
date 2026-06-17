@@ -36,6 +36,10 @@ public void createOrder(Order order){
   }
 }
 
+Propagation :
+Defines how transaction behaves when another transactional method is called
+
+
 
 
 
