@@ -51,15 +51,19 @@ SUPPORTS :  USes existing transaction if present, else runs without tansaction
 NOT_SUPPORTED : Suspends current transaction. Runs non-transactional
 @Transactional(propagation = Propagation.NOT_SUPPORTED)
 
-MANDATORY : Must have existing transaction
-@Transactional(propagation = Propagation.REQUIRED)
+MANDATORY : Must have existing transaction. Throws exception if none exists
+@Transactional(propagation = Propagation.MANDATORY)
 
 NEVER : Fail if transaction exists
-NESTED : Nested transaction with savepoint
+@Transactional(propagation = Propagation.NEVER)
+
+NESTED : Nested transaction with savepoint. partial rollback possible
+@Transactional(propagation = Propagation.NESTED)
 
 ISOLATION LEVELS
 Defines how transactions interact with each other 
 
+DEFAULT : Uses DB default isolation level
 READ_UNCOMMITTED : Nothing(dirty reads allowed)
 READ_COMMITTED : Prevent dirty reads
 REPEATABLE_READ : Prevent dirty + non-repeatable
