@@ -25,6 +25,19 @@ Executes business logic
   Commits if success
   Rolls back if exception occurs
 
+@Service
+public class OrderService{
+ @Autowired
+private orderRepository orderRepository;
+
+@Transactional
+public void createOrder(Order order){
+    orderRepository.save(order);
+  }
+}
+
+
+
 
 
 
