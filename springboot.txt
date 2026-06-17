@@ -225,6 +225,41 @@ return userRepository.save(user)
 @CacheEvict( Delete Cache)
 Removes cache entry
 
+Cache Providers
+1) In-Memory Cache
+ConcurrentHashMap
+No external setup
+
+2) Redis
+Used for distributed caching in microservices
+Shared cache across services
+High performance(in-memory DB)
+
+3) EhCache/Caffeine
+Local JVM caching
+Faster than DB
+
+Types of Caching 
+1) Method-Level Caching:
+Using annotations (@Cacheable)
+
+2) Database Query Caching
+Reduces repeated queries
+Usually used in ready-heavy systems
+
+3) Distributed Caching
+Shared cache(Redis)
+Used in microservices
+
+4) HTTP Response Caching
+API Gateway/CDN Layer
+
+
+
+
+
+
+
 
 
 
