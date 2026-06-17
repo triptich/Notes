@@ -38,6 +38,29 @@ public void createOrder(Order order){
 
 Propagation :
 Defines how transaction behaves when another transactional method is called
+Types
+REQUIRED(default) : Join existing or create new
+REQUIRES_NEW : Always new transaction
+SUPPORTS :  USe if exists, else no tansaction
+NOT_SUPPORTED : Always non-transactional
+MANDATORY : Must have existing transaction
+NEVER : Fail if transaction exists
+NESTED : Nested transaction with savepoint
+
+ISOLATION LEVELS
+Defines how transactions interact with each other 
+
+READ_UNCOMMITTED : Nothing(dirty reads allowed)
+READ_COMMITTED : Prevent dirty reads
+REPEATABLE_READ : Prevent dirty + non-repeatable
+SERIALIZABLE : Fully isolated
+
+Rollback Rules :
+By default
+Rollabck happens if there is Run Time Exception
+No rollback if there is checked exception
+
+@Transactional(rollbackFor = Exception.class)
 
 
 
