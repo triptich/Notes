@@ -346,6 +346,14 @@ Banking transactions
 Seat Booking
 Stock/Inventory
 
+JWT Working
+JWT(JSON Web Token) is a compact, self contained token used for authentication and authorization
+Stateless - no session stored on server
+Token itself contains user info(claims)
+Used in REST APIs , microservices 
+It is signed so server can verify it without database lookup
+
+
 
 
 
