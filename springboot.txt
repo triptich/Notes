@@ -254,6 +254,36 @@ Used in microservices
 4) HTTP Response Caching
 API Gateway/CDN Layer
 
+Locking in Spring Boot
+Locking in Spring Boot is used to handle concurrent data access and maintain data consistency when multiple transactions try to read/update the same data
+
+Why Locking is Needed
+In concurrent systems :
+Multiple users/threads access same DB record
+Leads to isisues :
+  Lost Update
+  Dirty read
+  Non-repeatable Read
+  Race conditions
+
+Types of Locking
+1) Optimistic Locking
+2) Pessimistic Locking
+
+1) Optimistic Locking : Assumes conflicts are reare
+Does not lock DB rows
+Instead uses a version field (@Version) to detect conflicts
+Fails transaction if another update already happened
+
+How It Works :
+Read Entity -> store version
+Update entity -> compare version
+If version changed -> throws Exception
+
+
+
+
+
 
 
 
