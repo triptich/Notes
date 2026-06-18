@@ -290,6 +290,62 @@ User A reads version = 1
 User B updates - version becomes 2
 User A tried update -> fails with OptimisticLockException
 
+Advantages
+No DB Locking - High Performance
+Good for read-heavy systems
+
+Disadvantages
+Needs retry logic
+Not suitable when conflicts are frequent
+
+2) Pessismistic Locking :
+Assumes conflicts are likely
+Locks the DB row immediately
+Other tranactions must wait
+
+Types (LockModeType)
+PESSIMISTIC_READ : No updates allowed
+PESSIMISTIC_WRITE : No read/write allowed
+
+Implementation
+@Repository
+public inerface ProductRepository extends JPARepository<Product,Long>{
+
+  @Lock(LockModeType.PESSIMISTIC_WRITE)
+  @Query("Select p from product p where p.id =:id")
+Optional<Product> findByIdForUpdate(Long id);
+}
+
+What happens
+Transaction A fetches Records - Lock acquired
+Transaction B tries - waits
+A completes then B Proceeds
+
+Advantages:
+Strong consistency
+Prevents lost updates completely
+
+Disadvantages :
+Performance overhead
+Can cause deadlocks
+
+Locking works only inside @Transactional
+Optimistic uses @Version
+Pessimistic uses @Lock and LockModeType
+Without locking - leads to lost update problem
+Optimistic - Non-Blocking
+Pessimistic - Blocking
+
+Use Optimistic :
+Profile update
+Analytics
+Content management
+
+Use Pessimistic
+Banking transactions
+Seat Booking
+Stock/Inventory
+
 
 
 
