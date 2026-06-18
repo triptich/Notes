@@ -353,6 +353,30 @@ Token itself contains user info(claims)
 Used in REST APIs , microservices 
 It is signed so server can verify it without database lookup
 
+Structure of JWT
+JWT has 3 parts
+Header
+Payload
+Signature
+
+Header
+{
+"alg":"HS256",
+"typ":"JWT"
+}
+
+payload:
+{
+"sub":"user123",
+"role":"ADMIN",
+"exp" : 1710000
+}
+
+Signature :
+Signature ensures token is not tampered
+
+JWT Authentication Flow (End-to-End)
+
 
 
 
