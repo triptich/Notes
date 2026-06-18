@@ -376,7 +376,16 @@ Signature :
 Signature ensures token is not tampered
 
 JWT Authentication Flow (End-to-End)
+1) Login request
+Client send credentials ie username and password
 
+2) Authentication by Spring Security
+AuthenticationManager validates credentials
+
+3)Generate JWT Token
+If valid -> server generates JWT
+String token = Jwts.Builder()
+               .setSubject()
 
 
 
