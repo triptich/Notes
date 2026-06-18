@@ -385,10 +385,86 @@ AuthenticationManager validates credentials
 3)Generate JWT Token
 If valid -> server generates JWT
 String token = Jwts.Builder()
-               .setSubject()
+               .setSubject(username)
+               .setExpiration(...)
+                .signWith(secretKey)
+               .compact();
 
+4)Return Token to Client
 
+5) Client Stores Token
+Stores token in LocalStorage/Session/Cookies
 
+6) Client sends token ineach request
+Authoration : Bearer <JWT>
+
+7)JWT Filter Validates Token
+Extract Token
+Validate Token
+Check Expiry
+Get USer Details
+
+8) Set Authentication in Context
+SecurityContextHolder.getContext()setAuthentication(auth);
+
+9) Request proceeds to Controller
+
+Core Components in Spring Boot JWT
+1) JWT Utility Class
+@Component
+public class JWTUtil{
+  private String secretKey = "secret";
+  public String generateToken(String userName){
+    return Jwts.Builder()
+       .setSubject(username)
+       .setIssuedAt(new Date())
+      .setExpiration(new Date(System.currentTimeMillis()+1000 * 60 *15))
+      .signWith(Keys.hmacShaKeyFor(SECRET_KEY.getBytes()),SignatureAlgorithm.HS256).compact();
+  }
+
+  public String extractUsername(String token){
+    return Jwts.parseBuilder()
+    .setSigningKey(secretKey.getBytes()).build()
+    .parseClaims(token).getBody().getSubject();
+
+  }
+}
+
+2) JWT Filter
+@Component
+public class JWTFilter extends OncePerRequestFilter{
+  @Autowired
+  private JWTUtil jwtUtil;
+
+private void doFilterInternal(HttpServletRequest request,HttpServletResponse response,FilterChain chain) throws ServletException, IOException{
+  String header = request.getHeader("Authorization");
+  if(header!=null && header.startsWith("Bearer")){
+      String token = header.substring(7);
+      String username = jwtutil.extractusrrname(token);
+
+      UsernamePasswordAuthenticationToken auth = new            UsernamePasswordAuthenticationToken(username,null,new ArrayList<>());
+
+  SecurityContextHolder.getContext().setAuthentication(auth);
+  }
+chain.doFilter(request,response);
+}
+}
+
+3) Securiry Configuration
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig{
+  @Autowired
+  JWTFilter jwtFilter;
+
+  @Bean
+public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
+  return http.csrf(csrf->csrf.disable())
+.authorizeHttpRequests(auth->auth.requestMatchers("/auth/**").permitAll()
+.anyRequest().authenticated()).addFilterBefore(jwrFilter,UsernamePasswordAuthentication.class).build();
+}
+
+JWT Filter should be before UsernamePAsswordAuthenticationFilter
 
 
 
