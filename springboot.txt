@@ -280,6 +280,19 @@ Read Entity -> store version
 Update entity -> compare version
 If version changed -> throws Exception
 
+@Entity
+public class Product{
+@Version
+private Long version;
+}
+
+User A reads version = 1
+User B updates - version becomes 2
+User A tried update -> fails with OptimisticLockException
+
+
+
+
 
 
 
