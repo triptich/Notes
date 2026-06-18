@@ -466,6 +466,101 @@ public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
 
 JWT Filter should be before UsernamePAsswordAuthenticationFilter
 
+OAuth2 
+Oauth2 is an authroziation framework that allows :
+Application to access resources on behalf of a user
+Without sharing user credentials
+Instead of passwords, it uses access tokens
+
+How OAuth2 Works
+OAuth2 Client - Login
+ResourceServer - API Protection
+Authorization Server - Token Generation 
+Step By Step
+1) Client tries to access protected Endpoint
+Get /api/user
+
+2) Redirect to Authrozation Server
+Spring Security automatically redirects
+/outh2/authorization/google
+User is sent to Googlr Login Page
+
+3) User Authentication
+User enters credentials
+Grants permission
+
+4) Authorization Server returns Code
+http://localhost:8080/login/oauth2/code/google?code=abc123
+
+5) Spring boot exchanges code for Token
+/token
+grant_type = authorization_code
+
+6) Access Token returned
+
+7) Client calls API with Token
+Authorization Bearer token
+
+8) Resource Server validates Token
+Signature check
+Expiry Check
+Scopes Validation
+
+Access Granted
+
+Dependencies Required
+spring-boot-starter-security
+spring-boot-starter-oauth2-client
+
+application.yml
+spring:
+   security:
+     oauth2:
+       client:
+         registration:
+            google:
+              client-id: 
+              client-secret:
+              scope:
+              redirect-uri:
+              authroziation-grant-type:
+        provider:
+          google:
+              authorization-uri:
+               token-uri:
+                 user-info-uri :
+                   user-name-attribute
+
+
+Security Configuration
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig{
+ @Bean
+public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
+http.authroizeRequest(auth->auth.requestMatchers("/","/public/**").permitAll().anyRequest().authenticated())
+.oauth2Login();
+
+return http.build();
+}
+}
+
+Controller
+@RestController
+public class HoneController{
+  @GetMapping("/secure')
+public String secure(OAuth2AuthenticationToken token){
+  return token.getPrincipal().getAttribute("email");
+}
+}
+
+
+       
+       
+
+
+
+
 
 
 
